@@ -6,17 +6,6 @@ import requests
 
 logging.basicConfig(level=logging.INFO)
 
-
-DUMMY_LINK_DATA = {
-    "Stats": {
-        "sent_bytes_second": "50000",
-        "rem_addr": "10.24.95.100:53468"
-    },
-    "IceRole": "CONTROLLED",
-    "Type": "DummyVal",
-    "Status": "Writeable"
-}
-
 DUMMY_NODE_DATA = {
     "TapName": "ipop_tap0",
     "VIP4": "2.3.4.5",
@@ -35,6 +24,16 @@ OVRL1 = "Ovrl1"
 
 
 def get_link_data(node_id, peer_id):
+    DUMMY_LINK_DATA = {
+        "Stats": {
+            "sent_bytes_second": "50000",
+            "rem_addr": "10.24.95.100:53468"
+        },
+        "IceRole": "CONTROLLED",
+        "Type": "DummyVal",
+        "Status": "Writeable"
+    }
+
     link_id = "{}{}{}".format("L", node_id, peer_id)
     link_data = dict({link_id: DUMMY_LINK_DATA})
     link_data[link_id]["PeerId"] = peer_id
