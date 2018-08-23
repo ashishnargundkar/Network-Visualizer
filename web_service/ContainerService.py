@@ -4,7 +4,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import threading
 
-from flask import Flask, abort
+from flask import Flask
 
 from CollectorService import CollectorServiceInstance
 from CentralVisualizerService import CentralVisualizerService
@@ -23,13 +23,13 @@ class ContainerService(Flask):
         )
         ch = logging.StreamHandler()
         ch.setLevel(getattr(logging,
-                CONTAINER_CONFIG["logging"]["console_level"]))
+                            CONTAINER_CONFIG["logging"]["console_level"]))
         ch.setFormatter(fmtr)
 
         fh = RotatingFileHandler(CONTAINER_CONFIG["logging"]["rot_fh_fname"],
-            backupCount=CONTAINER_CONFIG["logging"]["rot_fh_count"])
+                                 backupCount=CONTAINER_CONFIG["logging"]["rot_fh_count"])
         fh.setLevel(getattr(logging,
-                CONTAINER_CONFIG["logging"]["rot_fh_level"]))
+                            CONTAINER_CONFIG["logging"]["rot_fh_level"]))
         fh.setFormatter(fmtr)
 
         self._logger.addHandler(ch)
@@ -46,7 +46,7 @@ class ContainerService(Flask):
         # NOTE: Important for the dumper thread to be started from the container
         # (i.e. Flask subclass) else it won't work
         self._dumper_thread = threading.Thread(name="DumperThread",
-               target=self._coll_serv.dump_vis_data)
+                                               target=self._coll_serv.dump_vis_data)
         self._dumper_thread.daemon = True
         self._dumper_thread.start()
 
