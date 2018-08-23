@@ -36,7 +36,7 @@ OVRL1 = "Ovrl1"
 
 def get_link_data(node_id, peer_id):
     link_id = "{}{}{}".format("L", node_id, peer_id)
-    link_data = {link_id: DUMMY_LINK_DATA}
+    link_data = dict({link_id: DUMMY_LINK_DATA})
     link_data[link_id]["PeerId"] = peer_id
 
     return link_data
