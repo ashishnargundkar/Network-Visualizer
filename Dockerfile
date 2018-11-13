@@ -7,6 +7,8 @@ RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
 USER docker
 
+RUN sudo apt-get install -y git
+
 RUN git clone https://github.com/ipop-project/Network-Visualizer.git
 
 RUN cd Network-Visualizer/setup
