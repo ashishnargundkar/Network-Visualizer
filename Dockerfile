@@ -1,22 +1,27 @@
 FROM ubuntu:16.04
 
-RUN apt-get update && \
-      apt-get -y install sudo
+ENV VIS_DIR ~/Network-Visualizer
 
-RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
+RUN apt-get update -y
 
-USER docker
+RUN apt-get -y install apt-utils
 
-RUN sudo apt-get install -y git
+RUN apt-get update -y
 
-RUN git clone https://github.com/ipop-project/Network-Visualizer.git
+RUN apt-get -y install apt-transport-https
 
-RUN cd Network-Visualizer/setup
+RUN apt-get update -y
 
-RUN ./setup.sh
+RUN apt-get -y install sudo
+
+RUN apt-get update -y
+
+RUN apt-get install -y git
+
+RUN apt-get update -y
+
+RUN git clone --single-branch -b docker-support https://github.com/ipop-project/Network-Visualizer.git $VIS_DIR && cd $VIS_DIR/setup && ./setup.sh
 
 EXPOSE 5000
 
-RUN cd ..
-
-CMD ./visualizer start
+CMD $VIS_DIR/visualizer start

@@ -14,8 +14,8 @@ function options
 
 function start()
 {
-    source ./venv/bin/activate
-    nohup python3 ./web_service/DeploymentServer.py 2>&1 1>/dev/null &
+    source $VIS_DIR/venv/bin/activate
+    nohup python3 $VIS_DIR/web_service/DeploymentServer.py 2>&1 1>/dev/null &
     deactivate
 }
 
