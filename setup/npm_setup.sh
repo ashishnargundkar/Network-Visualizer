@@ -1,7 +1,7 @@
 #!/bin/bash
 
-curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
-sudo apt-get install -y nodejs
+curl -sL https://deb.nodesource.com/setup_9.x | bash -
+apt-get install -y nodejs
 cd ../web_service/UI/static
 npm init -y
 npm i webpack --save-dev

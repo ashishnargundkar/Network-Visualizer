@@ -12,8 +12,6 @@ RUN apt-get -y install apt-transport-https
 
 RUN apt-get update -y
 
-RUN apt-get -y install sudo
-
 RUN apt-get update -y
 
 RUN apt-get install -y git

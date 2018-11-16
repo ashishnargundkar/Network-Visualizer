@@ -1,8 +1,9 @@
 #!/bin/bash
-sudo apt-get install curl
-sudo apt-get install python3
-sudo apt-get install python3-pip
-sudo apt-get install -y mongodb
+apt-get install curl
+apt-get install python3
+apt-get install python3-dev
+apt-get install python3-pip
+apt-get install -y mongodb
 
 pip3 install --user virtualenv
 python3 -m virtualenv $VIS_DIR/venv
