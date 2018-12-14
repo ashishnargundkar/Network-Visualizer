@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd $VIS_DIR/setup
+cd $VIS_DIR
 pip3 install --user virtualenv
 python3 -m virtualenv venv
 source venv/bin/activate
