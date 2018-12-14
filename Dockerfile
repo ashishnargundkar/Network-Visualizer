@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 COPY ./badproxy /etc/apt/apt.conf.d/99fixbadproxy
 
-ENV VIS_DIR ~/Network-Visualizer
+ENV VIS_DIR $HOME/Network-Visualizer
 
 RUN apt-get update -y
 
