@@ -6,15 +6,11 @@ ENV VIS_DIR ~/Network-Visualizer
 
 RUN apt-get update -y
 
-RUN apt-get -y --download-only --reinstall install resolvconf
-RUN dpkg --purge --force-depends resolvconf
-RUN apt-get -y install resolvconf
-
 RUN apt-get -y install apt-utils apt-transport-https git curl python3 python3-setuptools python3-dev python3-pip mongodb nodejs
 
 RUN git clone --single-branch -b docker-support https://github.com/ashishnargundkar/Network-Visualizer.git $VIS_DIR
 
-RUN $VIS_DIR/setup.sh
+RUN $VIS_DIR/setup/setup.sh
 
 EXPOSE 5000
 
