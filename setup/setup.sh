@@ -8,5 +8,5 @@ pip3 install -r Requirements.txt
 deactivate
 
 source npm_setup.sh
-ln -s visualizer.sh $VIS_DIR/visualizer
+ln -s `pwd`/visualizer.sh $VIS_DIR/visualizer
 chmod +x $VIS_DIR/visualizer
