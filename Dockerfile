@@ -16,6 +16,10 @@ RUN apt-get -y install nodejs
 
 RUN $VIS_DIR/setup/setup.sh
 
+RUN $VIS_DIR/setup/npm_setup.sh
+RUN ln -s $VIS_DIR/setup/visualizer.sh $VIS_DIR/visualizer
+RUN chmod +x $VIS_DIR/visualizer
+
 EXPOSE 5000
 
 CMD $VIS_DIR/visualizer start
